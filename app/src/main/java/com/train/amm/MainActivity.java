@@ -18,5 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         Toast.makeText(getApplicationContext(),"one",Toast.LENGTH_LONG);
+
+
+        int a  = 3;
     }
 }
