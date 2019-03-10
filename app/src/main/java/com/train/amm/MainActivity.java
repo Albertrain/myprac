@@ -1,8 +1,10 @@
 package com.train.amm;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,5 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView textView = new TextView(this);
+
+
+        Toast.makeText(getApplicationContext(),"one",Toast.LENGTH_LONG);
     }
 }
