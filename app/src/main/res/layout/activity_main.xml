@@ -53,5 +53,35 @@
         android:onClick="sendMessage"
         android:text="@string/sendMessage" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nextpage"
+        android:onClick="newPage"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getSpace"
+        android:onClick="getSpace"
+        />
+
+    <TextView
+        android:id="@+id/tv_spaceshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#0800ff"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="备份短信"
+        android:onClick="backupMessage"
+        />
+
+
 
 </LinearLayout>

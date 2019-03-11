@@ -2,14 +2,19 @@ package com.train.amm;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SyncStatusObserver;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
 import android.telephony.SmsManager;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
@@ -70,5 +75,46 @@ public class MainActivity extends Activity {
 
         System.out.println("send success!");
 
+    }
+
+    //获取存储卡空间
+    public void getSpace(View view) {
+        File path = Environment.getExternalStorageDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize;
+        long totalBlocks;
+        long availableBlocks;
+
+        //获取当前系统版本的等级
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            blockSize = stat.getBlockSizeLong();
+            totalBlocks = stat.getBlockCountLong();
+            availableBlocks = stat.getAvailableBlocksLong();
+        } else {
+            blockSize = stat.getBlockSize();
+            totalBlocks = stat.getBlockCount();
+            availableBlocks = stat.getAvailableBlocks();
+        }
+
+        TextView tv = (TextView) findViewById(R.id.tv_spaceshow);
+        tv.setText(formatSize(availableBlocks * blockSize));
+    }
+
+    private String formatSize(long size) {
+        return Formatter.formatFileSize(this, size);
+    }
+
+    //进入下一个页面
+    public void newPage(View v) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, LoginActivity_01.class);
+        startActivity(intent);
+    }
+
+    //备份短信页面
+    public void backupMessage(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, BackMessageActivity.class);
+        startActivity(intent);
     }
 }
