@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">AMM</string>
-    <string name = "helloworld">text</string>
+    <string name="helloworld">text</string>
+    <string name="input">请输入手机号</string>
+    <string name="callphone">call</string>
+    <string name="click">click</string>
+    <string name="numberhint">please input your number</string>
+    <string name="contenthint">please input your message</string>
+    <string name="sendMessage">send</string>
 </resources>
