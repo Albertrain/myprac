@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AMM</string>
+    <string name = "helloworld">text</string>
 </resources>
