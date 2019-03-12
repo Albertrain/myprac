@@ -179,4 +179,11 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this,HtmlSourceActivity.class);
         startActivity(intent);
     }
+
+    //打开新闻页面
+    public void openNews(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,NewsClientActivity.class);
+        startActivity(intent);
+    }
 }
