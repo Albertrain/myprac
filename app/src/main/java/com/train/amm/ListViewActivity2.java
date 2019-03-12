@@ -80,8 +80,14 @@ public class ListViewActivity2 extends AppCompatActivity {
 //			View v3 = inflater2.inflate(R.layout.item_listview, null);
 
                 //通过资源id查找组件,注意调用的是View对象的findViewById
+                //优化
+                View view = null;
+                if(convertView == null){
+                    view= View.inflate(getApplicationContext(), R.layout.activity_list_view2, null);
+                }else{
+                    view = convertView;
+                }
 
-                View view = View.inflate(getApplicationContext(), R.layout.activity_list_view2, null);
                 TextView tv_name = view.findViewById(R.id.tv_name);
                 tv_name.setText(person.getName());
 
