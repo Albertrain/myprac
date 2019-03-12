@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmCancelActivity">
+
+    <Button
+        android:id="@+id/bt_con"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="对话框"
+        android:onClick="clickConfirm"
+        />
+
+    <Button
+        android:id="@+id/bt_siglecon"
+        android:layout_below="@id/bt_con"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单选对话框"
+        android:onClick="singleClick"
+        />
+
+    <Button
+        android:layout_below="@id/bt_siglecon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="多选对话框"
+        android:onClick="mutiSelectClick"
+        />
+
+</RelativeLayout>

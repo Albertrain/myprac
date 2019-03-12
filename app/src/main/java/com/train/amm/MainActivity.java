@@ -136,4 +136,32 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this,ListViewActivity2.class);
         startActivity(intent);
     }
+
+    //显示arraylistview和simplelistview的demo
+    public void showArrayListview(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ArrayListViewActivity.class);
+        startActivity(intent);
+    }
+
+    //显示对话框的demo
+    public void ShowDialog(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ConfirmCancelActivity.class);
+        startActivity(intent);
+    }
+
+    //显示网络图片
+    public void showNetImage(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,NetImageActivity.class);
+        startActivity(intent);
+    }
+
+    //显示网络图片带缓存
+    public void showNetCacheImage(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,NetImageCacheActivity.class);
+        startActivity(intent);
+    }
 }
