@@ -49,70 +49,79 @@ public class NetImageCacheActivity extends AppCompatActivity {
     }
 
     public void downLoad(View v) {
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                //下载图片
-                //1.确定网址
-                String path = "http://192.168.6.238:8080/cat.jpg";
-                try {
-                    //2.把网址封装成一个url对象
-                    URL url = new URL(path);
-                    //3.获取客户端和服务器的连接对象，此时还没有建立连接
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    //4.对连接对象进行初始化
-                    //设置请求方法，注意大写
-                    conn.setRequestMethod("GET");
-                    //设置连接超时
-                    conn.setConnectTimeout(5000);
-                    //设置读取超时
-                    conn.setReadTimeout(5000);
-                    //5.发送请求，与服务器建立连接
-                    conn.connect();
-                    //如果响应码为200，说明请求成功
-                    if (conn.getResponseCode() == 200) {
-                        //获取服务器响应头中的流，流里的数据就是客户端请求的数据
-                        InputStream is = conn.getInputStream();
-                        //读取出流里的数据，并构造成位图对象
+        //1.确定网址
+        final String path = "http://192.168.6.238:8080/cat.jpg";
+        final File file = new File(getCacheDir(),getSourceName(path));
+        if(file.exists()){
+            //read cache
+            Bitmap bmp = BitmapFactory.decodeFile(file.getAbsolutePath());
+            iv.setImageBitmap(bmp);
+        }else{
+            //download from net
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    //下载图片
+                    try {
+                        //2.把网址封装成一个url对象
+                        URL url = new URL(path);
+                        //3.获取客户端和服务器的连接对象，此时还没有建立连接
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        //4.对连接对象进行初始化
+                        //设置请求方法，注意大写
+                        conn.setRequestMethod("GET");
+                        //设置连接超时
+                        conn.setConnectTimeout(5000);
+                        //设置读取超时
+                        conn.setReadTimeout(5000);
+                        //5.发送请求，与服务器建立连接
+                        conn.connect();
+                        //如果响应码为200，说明请求成功
+                        if (conn.getResponseCode() == 200) {
+                            //获取服务器响应头中的流，流里的数据就是客户端请求的数据
+                            InputStream is = conn.getInputStream();
+                            //读取出流里的数据，并构造成位图对象
 
-                        //缓存到本地文件夹
-                        File file = new File(getCacheDir(),getSourceName(path));
-                        FileOutputStream fos = new FileOutputStream(file);
-                        byte[] bys = new byte[1024];
-                        int len = 0;
-                        while((len = is.read(bys)) != -1){
-                            fos.write(bys,0,len);
-                        }
-                        fos.close();
+                            //缓存到本地文件夹
 
-                       // Bitmap bm = BitmapFactory.decodeStream(is);
-                        Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
-                        System.out.println("kjdslkfjksjdfjdsa jflk");
+                            FileOutputStream fos = new FileOutputStream(file);
+                            byte[] bys = new byte[1024];
+                            int len = 0;
+                            while((len = is.read(bys)) != -1){
+                                fos.write(bys,0,len);
+                            }
+                            fos.close();
+
+                            // Bitmap bm = BitmapFactory.decodeStream(is);
+                            Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            System.out.println("kjdslkfjksjdfjdsa jflk");
 //						ImageView iv = (ImageView) findViewById(R.id.iv);
 //						//把位图对象显示至imageview
 //						iv.setImageBitmap(bm);
 
-                        Message msg = new Message();
-                        //消息对象可以携带数据
-                        msg.obj = bm;
-                        msg.what = 1;
-                        //把消息发送至主线程的消息队列
-                        handler.sendMessage(msg);
+                            Message msg = new Message();
+                            //消息对象可以携带数据
+                            msg.obj = bm;
+                            msg.what = 1;
+                            //把消息发送至主线程的消息队列
+                            handler.sendMessage(msg);
 
-                    } else {
+                        } else {
 //						Toast.makeText(MainActivity.this, "请求失败", 0).show();
 
-                        Message msg = handler.obtainMessage();
-                        msg.what = 0;
-                        handler.sendMessage(msg);
+                            Message msg = handler.obtainMessage();
+                            msg.what = 0;
+                            handler.sendMessage(msg);
+                        }
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
                 }
-            }
-        };
-        t.start();
+            };
+            t.start();
+        }
+
     }
 
     //截取文件名字，用于缓存
