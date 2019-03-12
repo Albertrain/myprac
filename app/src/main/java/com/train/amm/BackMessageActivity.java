@@ -5,14 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Xml;
 import android.view.View;
 
-import com.train.amm.bean.Message;
+import com.train.amm.domain.Message;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;

@@ -99,6 +99,17 @@ public class MyTest {
     }
 
     @Test
+    public void insertApi_1() {
+        for (int i = 1; i <=60; i++) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", "person"+i);
+            contentValues.put("phone", "121"+i+i);
+            contentValues.put("salary", "170"+i+i);
+            writableDatabase.insert("person", null, contentValues);
+        }
+    }
+
+    @Test
     public void deleteApi() {
         int person = writableDatabase.delete("person", "name =? and _id = ?", new String[]{"Albert", "2"});
         System.out.println(person);

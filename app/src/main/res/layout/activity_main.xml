@@ -1,87 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/input"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/et_phonenumber"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
 
-    <Button
-        android:id="@+id/bt_call"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/callphone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input"
+            android:textSize="20sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="getClick"
-        android:text="@string/click" />
+        <EditText
+            android:id="@+id/et_phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/bt_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/callphone" />
 
-    <!--下面是发送短信的demo-->
-
-    <EditText
-        android:id="@+id/et_message_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/numberhint" />
-
-    <EditText
-        android:id="@+id/et_message_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:hint="@string/contenthint"
-        android:lines="5" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="@string/sendMessage" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nextpage"
-        android:onClick="newPage"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getSpace"
-        android:onClick="getSpace"
-        />
-
-    <TextView
-        android:id="@+id/tv_spaceshow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#0800ff"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="备份短信"
-        android:onClick="backupMessage"
-        />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getClick"
+            android:text="@string/click" />
 
 
+        <!--下面是发送短信的demo-->
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/et_message_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/numberhint"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_message_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="@string/contenthint"
+            android:lines="5" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendMessage"
+            android:text="@string/sendMessage" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="newPage"
+            android:text="@string/nextpage" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getSpace"
+            android:text="@string/getSpace" />
+
+        <TextView
+            android:id="@+id/tv_spaceshow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0800ff"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backupMessage"
+            android:text="备份短信" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ShowData"
+            android:text="show data" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show list"
+            android:onClick="showListView"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show list2"
+            android:onClick="showListView2"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>

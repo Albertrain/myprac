@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyOpenHelper"></activity>
+        <activity android:name=".ListViewActivity2"></activity>
+        <activity android:name=".ListViewActivity" />
+        <activity android:name=".ShowDataActivity" />
+        <activity android:name=".MyOpenHelper" />
         <activity android:name=".BackMessageActivity" />
         <activity android:name=".LoginActivity_01" />
         <activity android:name=".LoginActivity" />

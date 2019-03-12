@@ -117,4 +117,23 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this, BackMessageActivity.class);
         startActivity(intent);
     }
+
+    //显示数据库页面
+    public void ShowData(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ShowDataActivity.class);
+        startActivity(intent);
+    }
+
+    public void showListView(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ListViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void showListView2(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ListViewActivity2.class);
+        startActivity(intent);
+    }
 }

@@ -1,4 +1,4 @@
-package com.train.amm.bean;
+package com.train.amm.domain;
 
 public class Message {
     private String body;
