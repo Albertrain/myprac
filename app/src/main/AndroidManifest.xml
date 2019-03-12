@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NetImageCacheActivity"></activity>
+        <activity android:name=".HtmlSourceActivity"></activity>
+        <activity android:name=".SmartImageActivity" />
+        <activity android:name=".NetImageCacheActivity" />
         <activity android:name=".NetImageActivity" />
         <activity android:name=".ConfirmCancelActivity" />
         <activity android:name=".ArrayListViewActivity" />

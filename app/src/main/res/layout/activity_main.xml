@@ -133,6 +133,19 @@
             android:onClick="showNetCacheImage"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="smartImage"
+            android:onClick="smartImage"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="html查看"
+            android:onClick="htmlSource"
+            />
 
     </LinearLayout>
 

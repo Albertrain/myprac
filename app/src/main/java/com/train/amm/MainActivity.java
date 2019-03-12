@@ -164,4 +164,19 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this,NetImageCacheActivity.class);
         startActivity(intent);
     }
+
+    //smartimageview查看网页图片
+    public void smartImage(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,SmartImageActivity.class);
+        startActivity(intent);
+    }
+
+
+    //查看html源码
+    public void htmlSource(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,HtmlSourceActivity.class);
+        startActivity(intent);
+    }
 }
