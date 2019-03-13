@@ -200,4 +200,10 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this,XutilDownloadActivity.class);
         startActivity(intent);
     }
+
+    //好友指数计算器，在acitiviy跳转时候携带数据
+    public void passData(View view){
+        Intent intent = new Intent(this,PassDataActivity.class);
+        startActivity(intent);
+    }
 }
