@@ -206,4 +206,16 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this,PassDataActivity.class);
         startActivity(intent);
     }
+
+    //查看android Activity的生命周期
+    public void lookLife(View view){
+        Intent intent = new Intent(this,LookLifeActivity.class);
+        startActivity(intent);
+    }
+
+    //Activity销毁时候调用
+    public void finishLook(View view){
+        Intent intent = new Intent(this,FinishActivity.class);
+        startActivity(intent);
+    }
 }

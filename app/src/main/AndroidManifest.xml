@@ -14,8 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScoreShowActivity2"></activity>
-        <activity android:name=".ScoreShowActivity"></activity>
+        <activity android:name=".CallbackActivity"/>
+        <activity android:name=".ContactActivity"/>
+        <activity android:name=".FinishActivity"></activity>
+        <activity android:name=".LunchModeActivity" />
+        <activity android:name=".LookLifeActivity2" />
+        <activity android:name=".LookLifeActivity" />
+        <activity android:name=".ScoreShowActivity2" />
+        <activity android:name=".ScoreShowActivity" />
         <activity android:name=".PassDataActivity" />
         <activity android:name=".XutilDownloadActivity" />
         <activity android:name=".ThreadDownloadActivity" />

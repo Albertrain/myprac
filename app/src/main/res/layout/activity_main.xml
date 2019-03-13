@@ -163,6 +163,20 @@
             android:text="好友指数计算"
             android:onClick="passData"
             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="activity生命周期"
+            android:onClick="lookLife"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity销毁时返回数据"
+            android:onClick="finishLook"
+            />
     </LinearLayout>
 
 </ScrollView>
