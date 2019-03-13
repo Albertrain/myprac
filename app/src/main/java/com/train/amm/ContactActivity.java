@@ -20,10 +20,10 @@ public class ContactActivity extends Activity {
 		ListView lv = (ListView) findViewById(R.id.lv);
 
 		final String[] objects = new String[]{
-				"小志",
-				"逼哥",
-				"世界级XXX",
-				"国服第一"
+				"Albert",
+				"Alice",
+				"Amy",
+				"Allen"
 		};
 
 		lv.setAdapter(new ArrayAdapter<String>(this, R.layout.item_listview_finish, R.id.tv, objects));

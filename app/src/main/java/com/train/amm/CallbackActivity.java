@@ -21,9 +21,9 @@ public class CallbackActivity extends Activity {
 		ListView lv = (ListView) findViewById(R.id.lv);
 
 		final String[] objects = new String[]{
-				"免谈，没戏，滚犊子",
-				"媳妇我错了，求原谅",
-				"老子才是一家之主"
+				"稍后回复",
+				"在忙，过会儿联系",
+				"请勿打扰"
 		};
 		lv.setAdapter(new ArrayAdapter<String>(this, R.layout.item_listview_finish, R.id.tv, objects));
 
