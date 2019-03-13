@@ -54,24 +54,48 @@ public class NewsClientActivity extends AppCompatActivity {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     //view对象， 填充
+                    View view = null;
+                    ViewHolder viewHolder;
+                    if(convertView == null){
+                        view = View.inflate(NewsClientActivity.this,R.layout.news_item_list,null);
+
+                        viewHolder = new ViewHolder();
+                        //把布局文件中的所有组建封装到viewholder对象中
+                        viewHolder.tv_title = view.findViewById(R.id.tv_news_title);
+                        viewHolder.tv_detail = view.findViewById(R.id.tv_news_content);
+                        viewHolder.tv_comment = view.findViewById(R.id.tv_news_comment);
+                        viewHolder.smartImageView = view.findViewById(R.id.iv_news_image);
+                        //把viewholder对象封装到view中
+                        view.setTag(viewHolder);
+                    }else{
+                        view = convertView;
+                        viewHolder = (ViewHolder) view.getTag();
+                    }
+
                     News news = newsList.get(position);
-                    View view = View.inflate(NewsClientActivity.this,R.layout.news_item_list,null);
 
-                    TextView tv_title = view.findViewById(R.id.tv_news_title);
-                    tv_title.setText(news.getTitle());
-                    System.out.println(news.getTitle());
+//                    TextView tv_title = view.findViewById(R.id.tv_news_title);
+                    viewHolder.tv_title.setText(news.getTitle());
 
-                    TextView tv_detail = view.findViewById(R.id.tv_news_content);
-                    tv_detail.setText(news.getDetail());
-                    System.out.println(news.getDetail());
+//                    TextView tv_detail = view.findViewById(R.id.tv_news_content);
+                    viewHolder.tv_detail.setText(news.getDetail());
 
-                    TextView tv_comment = view.findViewById(R.id.tv_news_comment);
-                    tv_comment.setText(news.getComment() + "条评论");
+//                    TextView tv_comment = view.findViewById(R.id.tv_news_comment);
+                    viewHolder.tv_comment.setText(news.getComment() + "条评论");
 
-                    SmartImageView smartImageView = view.findViewById(R.id.iv_news_image);
-                    smartImageView.setImageUrl(news.getImageUrl());
+//                    SmartImageView smartImageView = view.findViewById(R.id.iv_news_image);
+                    viewHolder.smartImageView.setImageUrl(news.getImageUrl());
 
                     return view;
+                }
+
+
+                class ViewHolder{
+                    //条目里有啥内容这里就定义什么属性
+                    TextView tv_title;
+                    TextView tv_detail;
+                    TextView tv_comment;
+                    SmartImageView smartImageView;
                 }
             });
 

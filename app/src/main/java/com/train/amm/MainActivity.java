@@ -186,4 +186,18 @@ public class MainActivity extends Activity {
         intent.setClass(MainActivity.this,NewsClientActivity.class);
         startActivity(intent);
     }
+
+    //安卓多线程断点续传
+    public void threadDownload(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,ThreadDownloadActivity.class);
+        startActivity(intent);
+    }
+
+    //xutil下载
+    public void xutilPage(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this,XutilDownloadActivity.class);
+        startActivity(intent);
+    }
 }
