@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -14,9 +19,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CallbackActivity"/>
-        <activity android:name=".ContactActivity"/>
-        <activity android:name=".FinishActivity"></activity>
+        <activity android:name=".ServiceForBroadActivity"></activity>
+        <activity android:name=".MusicPlayerActivity" />
+        <activity android:name=".RecorderActivity" />
+        <activity android:name=".StartServiceActivity" />
+        <activity android:name=".MyBroadCastActivity" />
+        <activity android:name=".BlackMailActivity" />
+        <activity android:name=".IpCallActivity" />
+        <activity android:name=".CallbackActivity" />
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".FinishActivity" />
         <activity android:name=".LunchModeActivity" />
         <activity android:name=".LookLifeActivity2" />
         <activity android:name=".LookLifeActivity" />
@@ -47,6 +59,70 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".broadcast.CallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.SmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.SdCardReceive">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.AppStatusReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.MyReceiver">
+            <intent-filter>
+                <action android:name="com.train.action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.MyOrderReceiver1">
+            <intent-filter android:priority="1000">
+                <action android:name="com.train.order" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.MyOrderReceiver2">
+            <intent-filter android:priority="800">
+                <action android:name="com.train.order" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.MyOrderReceiver3">
+            <intent-filter android:priority="600">
+                <action android:name="com.train.order" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BootRecorderReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.MyService" />
+        <service android:name=".service.RecordService" />
+        <service android:name=".service.MusicService" />
+        <service android:name=".service.RegisterBroadService"/>
     </application>
 
 </manifest>

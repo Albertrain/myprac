@@ -177,6 +177,58 @@
             android:text="Activity销毁时返回数据"
             android:onClick="finishLook"
             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IPcall"
+            android:onClick="ipCallShow"
+            />
+
+        <Button
+            android:id="@+id/bt_blackmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLACK MAIL"
+            android:onClick="blackMailShow"
+            />
+
+        <Button
+            android:id="@+id/bt_mybraodcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义广播"
+            android:onClick="myBroadCast"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启服务"
+            android:onClick="myService"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="录音机"
+            android:onClick="myRecorder"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放音乐"
+            android:onClick="playMusic"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务里代码开启广播接收者"
+            android:onClick="serviceForBroad"
+            />
+        
     </LinearLayout>
 
 </ScrollView>

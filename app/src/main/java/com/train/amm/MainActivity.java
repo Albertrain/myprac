@@ -218,4 +218,47 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this,FinishActivity.class);
         startActivity(intent);
     }
+
+    //用broadcastreceiver拨打IP电话
+    public void ipCallShow(View view){
+        Intent intent = new Intent(this,IpCallActivity.class);
+        startActivity(intent);
+    }
+
+    //模拟勒索软件，开机自启，无法返回，home自动回到前台
+    public void blackMailShow(View view){
+        Intent intent = new Intent(this,BlackMailActivity.class);
+        startActivity(intent);
+    }
+
+    //发送自定义广播
+    public void myBroadCast(View view){
+        Intent intent = new Intent(this,MyBroadCastActivity.class);
+        startActivity(intent);
+    }
+
+    //启动服务demo
+    public void myService(View view){
+        Intent intent = new Intent(this,StartServiceActivity.class);
+        startActivity(intent);
+    }
+
+    //录音机service
+    public void myRecorder(View view){
+        Intent intent = new Intent(this,RecorderActivity.class);
+        startActivity(intent);
+    }
+
+    //音乐播放器bind
+    public void playMusic(View view){
+        Intent intent = new Intent(this,MusicPlayerActivity.class);
+        startActivity(intent);
+    }
+
+    //服务里开启广播接收者
+    public void serviceForBroad(View view){
+        Intent intent = new Intent(this,ServiceForBroadActivity.class);
+        startActivity(intent);
+
+    }
 }
