@@ -261,4 +261,28 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
     }
+
+    //显示缩放图片
+    public void showScaleImage(View view){
+        Intent intent = new Intent(this,ShowImageActivity.class);
+        startActivity(intent);
+    }
+
+    //打开画板
+    public void openDraw(View view){
+        Intent intent = new Intent(this,PiantActivity.class);
+        startActivity(intent);
+    }
+
+    //撕衣服Demo
+    public void openCloth(View view){
+        Intent intent  = new Intent(this,OpenClothActivity.class);
+        startActivity(intent);
+    }
+
+    //播放本地音乐
+    public void playLocalMusic(View view){
+        Intent intent = new Intent(this,LocalMusicAcitivity.class);
+        startActivity(intent);
+    }
 }

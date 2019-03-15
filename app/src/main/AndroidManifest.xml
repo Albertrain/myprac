@@ -19,7 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ServiceForBroadActivity"></activity>
+        <activity android:name=".LocalMusicAcitivity"></activity>
+        <activity android:name=".OpenClothActivity" />
+        <activity android:name=".PiantActivity" />
+        <activity android:name=".ShowImageActivity" />
+        <activity android:name=".ServiceForBroadActivity" />
         <activity android:name=".MusicPlayerActivity" />
         <activity android:name=".RecorderActivity" />
         <activity android:name=".StartServiceActivity" />
@@ -122,7 +126,8 @@
         <service android:name=".service.MyService" />
         <service android:name=".service.RecordService" />
         <service android:name=".service.MusicService" />
-        <service android:name=".service.RegisterBroadService"/>
+        <service android:name=".service.RegisterBroadService" />
+        <service android:name=".service.LocalMusicService" />
     </application>
 
 </manifest>

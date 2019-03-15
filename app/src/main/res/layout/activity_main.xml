@@ -228,6 +228,34 @@
             android:text="服务里代码开启广播接收者"
             android:onClick="serviceForBroad"
             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示缩放图片"
+            android:onClick="showScaleImage"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开画板"
+            android:onClick="openDraw"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="撕衣服"
+            android:onClick="openCloth"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放本地音乐"
+            android:onClick="playLocalMusic"
+            />
         
     </LinearLayout>
 
