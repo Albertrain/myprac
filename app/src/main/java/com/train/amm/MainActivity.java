@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.ArrayList;
 
+
 public class MainActivity extends Activity {
 
     @Override
@@ -285,4 +286,23 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this,LocalMusicAcitivity.class);
         startActivity(intent);
     }
+
+    //播放本地视频
+    public void playLocalVideo(View view){
+        Intent intent = new Intent(this,VideoPlayerActivity.class);
+        startActivity(intent);
+    }
+
+    //videoview播放视频
+    public void playVideoView(View view){
+       Intent intent = new Intent(this,VideoViewActivity.class);
+       startActivity(intent);
+    }
+
+    //拍照页面
+    public void takePhoto(View view){
+        Intent intent = new Intent(this,PhotoActivity.class);
+        startActivity(intent);
+    }
+
 }

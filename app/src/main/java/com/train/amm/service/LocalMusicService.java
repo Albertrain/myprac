@@ -5,14 +5,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Message;
 
+import com.train.amm.LocalMusicAcitivity;
 import com.train.amm.imp.LocalMusicControl;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LocalMusicService extends Service {
     MediaPlayer mediaPlayer;
+    private Timer timer;
 
     /**
      * Return the communication channel to the service.  May return null if
@@ -55,6 +61,11 @@ public class LocalMusicService extends Service {
         //释放占用的资源，此时,mediaPlayer对象销毁
         mediaPlayer.release();
         mediaPlayer = null;
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     @Override
@@ -78,9 +89,14 @@ public class LocalMusicService extends Service {
         public void playAgain() {
             LocalMusicService.this.continuePlay();
         }
+
+        @Override
+        public void seekTo(int progress) {
+            LocalMusicService.this.seekTo(progress);
+        }
     }
 
-    public  void play(){
+    public void play() {
         //重置
         mediaPlayer.reset();
         try {
@@ -88,12 +104,14 @@ public class LocalMusicService extends Service {
             mediaPlayer.setDataSource("sdcard/tkdr.mp3");
             mediaPlayer.prepare();
             mediaPlayer.start();
+
+            addTimer();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void playNetMusic(){
+    public void playNetMusic() {
         mediaPlayer.reset();
         try {
             mediaPlayer.setDataSource("192.168.6.238:8080/tkdr.mp3");
@@ -111,11 +129,42 @@ public class LocalMusicService extends Service {
         }
     }
 
-    public void continuePlay(){
+    public void continuePlay() {
         mediaPlayer.start();
     }
 
-    public void pause(){
+    public void pause() {
         mediaPlayer.pause();
+    }
+
+    public void seekTo(int progress){
+        mediaPlayer.seekTo(progress);
+    }
+
+    public void addTimer() {
+        if (timer == null) {
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    //获取歌曲总时长
+                    int duration = mediaPlayer.getDuration();
+                    //获取当前的时长
+                    int currentPosition = mediaPlayer.getCurrentPosition();
+
+                    Message msg = LocalMusicAcitivity.handler.obtainMessage();
+
+                    //把消息进度封装在bundle对象中
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("duration", duration);
+                    bundle.putInt("currentPosition", currentPosition);
+                    msg.setData(bundle);
+
+                    LocalMusicAcitivity.handler.sendMessage(msg);
+                }
+                //开始计时后5毫秒后开始第一次执行run，之后每500毫秒执行一次
+            }, 5, 500);
+        }
+
     }
 }

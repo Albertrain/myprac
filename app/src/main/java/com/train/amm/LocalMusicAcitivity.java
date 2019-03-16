@@ -1,25 +1,69 @@
 package com.train.amm;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.SeekBar;
 
 import com.train.amm.imp.LocalMusicControl;
 import com.train.amm.service.LocalMusicService;
 
 public class LocalMusicAcitivity extends AppCompatActivity {
+    @SuppressLint("HandlerLeak")
+    public static Handler handler = new Handler(){
+        /**
+         * Subclasses must implement this to receive messages.
+         *
+         * @param msg
+         */
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            int duration = bundle.getInt("duration");
+            int currentPosition = bundle.getInt("currentPosition");
+
+            //刷新进度条
+            seekBar.setMax(duration);
+            seekBar.setProgress(currentPosition);
+        }
+    };
+
     LocalMusicControl localMusicControl;
     private Intent intent;
     private MyLocalConnection myLocalConnetion;
+    private static  SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_music_acitivity);
+        seekBar = findViewById(R.id.sb_bar);
+        //手动拖动设置侦听
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //手指拖动停止时候改变进度
+                int progress = seekBar.getProgress();
+                localMusicControl.seekTo(progress);
+            }
+        });
 
         intent = new Intent(this, LocalMusicService.class);
         startService(intent);

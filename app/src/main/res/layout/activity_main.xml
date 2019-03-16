@@ -256,7 +256,28 @@
             android:text="播放本地音乐"
             android:onClick="playLocalMusic"
             />
-        
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放本地视频"
+            android:onClick="playLocalVideo"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放VideoView"
+            android:onClick="playVideoView"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照"
+            android:onClick="takePhoto"
+            />
+
     </LinearLayout>
 
 </ScrollView>

@@ -10,7 +10,13 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- vitamio -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +25,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LocalMusicAcitivity"></activity>
+        <activity android:name=".PhotoActivity"></activity>
+        <!-- Don't forgot InitActivity -->
+        <!-- 必须初始化 -->
+        <!-- <activity -->
+        <!-- android:name="io.vov.vitamio.activity.InitActivity" -->
+        <!-- android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation" -->
+        <!-- android:launchMode="singleTop" -->
+        <!-- android:theme="@android:style/Theme.NoTitleBar" -->
+        <!-- android:windowSoftInputMode="stateAlwaysHidden" /> -->
+        <activity android:name=".VideoViewActivity" />
+        <activity android:name=".VideoPlayerActivity" />
+        <activity android:name=".LocalMusicAcitivity" />
         <activity android:name=".OpenClothActivity" />
         <activity android:name=".PiantActivity" />
         <activity android:name=".ShowImageActivity" />
