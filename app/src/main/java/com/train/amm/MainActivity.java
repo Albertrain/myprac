@@ -329,4 +329,10 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    //Fragment测试
+    public void toFragment(View view){
+        Intent intent = new Intent(this,FragmentActivity.class);
+        startActivity(intent);
+    }
+
 }
