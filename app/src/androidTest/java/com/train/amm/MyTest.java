@@ -23,15 +23,16 @@ public class MyTest {
         //获取虚拟上下文
         mTargetContext = InstrumentationRegistry.getTargetContext();
 
-        myOpenHelper = new MyOpenHelper(mTargetContext, "people.db", null, 1);
+        myOpenHelper = new MyOpenHelper(mTargetContext, "people.db", null, 2);
         //若数据库不存在，创建数据库并获得一个可写数据库对象，否则直接获取数据库对象
         writableDatabase = myOpenHelper.getWritableDatabase();
     }
 
 
+    @Test
     public void test() {
 
-        myOpenHelper = new MyOpenHelper(mTargetContext, "people.db", null, 1);
+        myOpenHelper = new MyOpenHelper(mTargetContext, "people.db", null, 2);
         //若数据库不存在，创建数据库并获得一个可写数据库对象，否则直接获取数据库对象
         writableDatabase = myOpenHelper.getWritableDatabase();
     }

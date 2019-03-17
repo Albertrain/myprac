@@ -278,6 +278,33 @@
             android:onClick="takePhoto"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容提供者测试"
+            android:onClick="toProvider"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看系统短信"
+            android:onClick="toMessage"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询联系人"
+            android:onClick="showContact"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容观察者"
+            android:onClick="toObserver"
+            />
     </LinearLayout>
 
 </ScrollView>

@@ -5,6 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyOpenHelper extends SQLiteOpenHelper {
+
+    public MyOpenHelper(Context context){
+        super(context,"people.db",null,2);
+    }
+
     public MyOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -27,6 +32,7 @@ public class MyOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("create table student (_id integer primary key autoincrement,name char(10),salary char(20))");
         System.out.println("database update");
     }
 }

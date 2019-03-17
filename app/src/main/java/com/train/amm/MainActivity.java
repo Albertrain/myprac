@@ -305,4 +305,28 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    //provider测试
+    public void toProvider(View view){
+        Intent intent = new Intent(this,ProviderSimulateActivity.class);
+        startActivity(intent);
+    }
+
+    //查询系统短信数据库
+    public void toMessage(View view){
+        Intent intent = new Intent(this,SystemMessageActivity.class);
+        startActivity(intent);
+    }
+
+    //查询联系人
+    public void showContact(View view){
+        Intent intent = new Intent(this,SystemContactActivity.class);
+        startActivity(intent);
+    }
+
+    //注册内容观察者
+    public void toObserver(View view){
+        Intent intent = new Intent(this,ContentObserverActivity.class);
+        startActivity(intent);
+    }
+
 }
