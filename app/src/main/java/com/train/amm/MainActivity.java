@@ -335,4 +335,22 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    //用xml布局文件完成帧动画
+    public void toFrameAnimation(View view){
+        Intent intent = new Intent(this,FrameAnimationActivity.class);
+        startActivity(intent);
+    }
+
+    //位移动画
+    public void toTweenAnimation(View view){
+        Intent intent = new Intent(this,TweenAnimationActivity.class);
+        startActivity(intent);
+    }
+
+    //属性动画
+    public void toObjectAnimation(View view){
+        Intent intent = new Intent(this,ObjectAnimationActivity.class);
+        startActivity(intent);
+    }
+
 }
